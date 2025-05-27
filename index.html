@@ -29,6 +29,7 @@
         --link-border-color: #d3d3d3;
         --link-fg-color: #3d3d3d;
         --link-fg-color-hover: #181818;
+        --scrollbar-color: rgba(0, 0, 0, 0.5);
       }
 
       @media (prefers-color-scheme: dark) {
@@ -40,6 +41,7 @@
           --link-border-color: #333333;
           --link-fg-color: #c9c9c9;
           --link-fg-color-hover: #ffffff;
+          --scrollbar-color: rgba(255, 255, 255, 0.5);
         }
       }
 
@@ -153,6 +155,31 @@
         flex: 0 0 auto;
         font-size: 16px;
       }
+
+      @media not screen and (hover: none) and (pointer: coarse) {
+        html,
+        body {
+          height: 100%;
+          overflow: auto;
+        }
+
+        body {
+          scrollbar-color: var(--scrollbar-color) transparent;
+          scrollbar-gutter: stable both-edges;
+        }
+
+        ::-webkit-scrollbar {
+          background-color: transparent;
+          width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background-clip: content-box;
+          background-color: var(--scrollbar-color);
+          border-radius: 8px;
+          border: 2px solid transparent;
+        }
+      }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -163,7 +190,7 @@
   </head>
   <body>
     <main>
-      <img alt="F" height="80" src="/images/favicon.svg" />
+      <img alt="F" height="80" loading="lazy" src="/images/favicon.svg" />
       <h1 class="title">Freeing</h1>
       <section class="links">
         <a
