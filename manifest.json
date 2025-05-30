@@ -1,6 +1,6 @@
 {
-  "name": "Freeing",
   "short_name": "Freeing",
+  "name": "Freeing",
   "icons": [
     {
       "src": "/images/manifest-icon-192.maskable.png",
@@ -27,6 +27,8 @@
       "purpose": "maskable"
     }
   ],
+  "id": "/",
   "start_url": "/",
-  "display": "browser"
+  "display": "standalone",
+  "scope": "/"
 }
